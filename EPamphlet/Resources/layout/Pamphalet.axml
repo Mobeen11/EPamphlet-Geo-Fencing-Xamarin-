@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <TextView
+        android:id="@+id/pamph_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:text="KFC"
+        android:textColor="#000000" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_below="@id/pamph_text1"
+        android:id="@+id/imageView1"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/pamph_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/imageView1"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/pamph_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/pamph_text2"
+        android:textColor="#000000" />
+    <Button
+        android:text="Get Location"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/text1"
+        android:id="@+id/getlocation"
+        android:layout_alignBaseline="@+id/pamph_text1"
+        android:layout_alignBottom="@+id/text1"
+        android:layout_marginTop="80dp"
+        android:textColor="@android:color/white"
+        android:background="@color/primary"
+        android:layout_marginLeft="230dp" />
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pamph_text3"
+        android:id="@+id/save"
+        android:layout_marginLeft="250dp"
+        android:textColor="@android:color/white"
+        android:background="@color/primary"
+        android:layout_marginTop="30dp" />
+</RelativeLayout>

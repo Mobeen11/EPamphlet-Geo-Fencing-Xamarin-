@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:text="Name:" />
+    <EditText
+        android:id="@+id/vendor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/text1"
+        android:layout_alignBottom="@+id/text1"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/text1"
+        android:ems="10"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_below="@+id/vendor_name"
+        android:layout_marginTop="75dp"
+        android:text="Password:"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/vendor_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/vendor_name"
+        android:ems="10"
+        android:textSize="20dp"
+        android:layout_marginRight="5dp"
+        android:inputType="textPassword" />
+    <TextView
+        android:text="Address:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vendor_password"
+        android:id="@+id/textView3"
+        android:layout_marginTop="75dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/vendor_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="5"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/vendor_password"
+        android:ems="10"
+        android:textSize="20dp"
+        android:layout_marginRight="5dp" />
+    <TextView
+        android:text="Phone No."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vendor_address"
+        android:id="@+id/textView4"
+        android:layout_marginTop="75dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="18dp"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/vendor_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="5"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/vendor_address"
+        android:ems="10"
+        android:textSize="20dp"
+        android:layout_marginRight="5dp" />
+    <Button
+        android:id="@+id/vendor_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/vendor_phone"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/vendor_phone"
+        android:layout_marginTop="55dp"
+        android:text="Submit"
+        android:textColor="@android:color/white"
+        android:background="@color/primary" />
+    
+</RelativeLayout>
