@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Epamphalet_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_id" />
+    </Key>
+    <Property Name="Admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Admin_username" Type="varchar" MaxLength="50" />
+    <Property Name="Admin_password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="Advert_id" />
+    </Key>
+    <Property Name="Advert_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Advert_text" Type="varchar" MaxLength="200" />
+    <Property Name="Advert_image" Type="varchar(max)" />
+    <Property Name="FKvendor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Choices">
+    <Key>
+      <PropertyRef Name="Choices_Id" />
+    </Key>
+    <Property Name="Choices_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FKCustomer_id" Type="int" />
+    <Property Name="FKVendor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_username" Type="varchar" MaxLength="30" />
+    <Property Name="Customer_name" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Fence">
+    <Key>
+      <PropertyRef Name="Fence_id" />
+    </Key>
+    <Property Name="Fence_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fence_name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fence_longitude" Type="decimal" Precision="18" Scale="15" />
+    <Property Name="Fence_latitude" Type="decimal" Precision="18" Scale="15" />
+    <Property Name="FKvendor_id" Type="int" />
+    <Property Name="Fence_radius" Type="float" />
+  </EntityType>
+  <EntityType Name="Reference">
+    <Key>
+      <PropertyRef Name="Reference_no" />
+    </Key>
+    <Property Name="Reference_no" Type="decimal" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="SalesCheck" Type="varchar" MaxLength="1" />
+    <Property Name="Date_time" Type="date" />
+    <Property Name="FKadvert_id" Type="int" />
+    <Property Name="FKcustomer_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Vendor_id" />
+    </Key>
+    <Property Name="Vendor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vendor_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Vendor_password" Type="varchar" MaxLength="30" />
+    <Property Name="Vendor_phone" Type="varchar" MaxLength="20" />
+    <Property Name="Vendor_address" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Vendor_Advertisement">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Advertisement">
+        <PropertyRef Name="FKvendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendor_id">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Fence" Type="Self.Fence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Fence">
+        <PropertyRef Name="FKvendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKCustomer_id">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_id" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="FKCustomer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKVendor_id">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="FKVendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Epamphalet_dbModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Choices" EntityType="Self.Choices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fence" EntityType="Self.Fence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reference" EntityType="Self.Reference" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Vendor_Advertisement" Association="Self.FK_Vendor_Advertisement">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="Advertisement" EntitySet="Advertisement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendor_id" Association="Self.FK_Vendor_id">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="Fence" EntitySet="Fence" />
+    </AssociationSet>
+    <AssociationSet Name="FKCustomer_id" Association="Self.FKCustomer_id">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FKVendor_id" Association="Self.FKVendor_id">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

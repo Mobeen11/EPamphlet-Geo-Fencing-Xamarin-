@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Epamphalet_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_id" />
+    </Key>
+    <Property Name="Admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Admin_username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="Advert_id" />
+    </Key>
+    <Property Name="Advert_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Advert_text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Advert_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FKvendor_id" Type="Int32" />
+    <NavigationProperty Name="Vendor" Relationship="Self.FK_Vendor_Advertisement" FromRole="Advertisement" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Choice">
+    <Key>
+      <PropertyRef Name="Choices_Id" />
+    </Key>
+    <Property Name="Choices_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FKCustomer_id" Type="Int32" />
+    <Property Name="FKVendor_id" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FKCustomer_id" FromRole="Choices" ToRole="Customer" />
+    <NavigationProperty Name="Vendor" Relationship="Self.FKVendor_id" FromRole="Choices" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Choices" Relationship="Self.FKCustomer_id" FromRole="Customer" ToRole="Choices" />
+  </EntityType>
+  <EntityType Name="Fence">
+    <Key>
+      <PropertyRef Name="Fence_id" />
+    </Key>
+    <Property Name="Fence_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fence_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fence_longitude" Type="Decimal" Precision="18" Scale="15" />
+    <Property Name="Fence_latitude" Type="Decimal" Precision="18" Scale="15" />
+    <Property Name="FKvendor_id" Type="Int32" />
+    <Property Name="Fence_radius" Type="Double" />
+    <NavigationProperty Name="Vendor" Relationship="Self.FK_Vendor_id" FromRole="Fence" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Reference">
+    <Key>
+      <PropertyRef Name="Reference_no" />
+    </Key>
+    <Property Name="Reference_no" Type="Decimal" Precision="30" Scale="0" Nullable="false" />
+    <Property Name="SalesCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Date_time" Type="DateTime" Precision="0" />
+    <Property Name="FKadvert_id" Type="Int32" />
+    <Property Name="FKcustomer_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Vendor_id" />
+    </Key>
+    <Property Name="Vendor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vendor_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Vendor_password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Vendor_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Vendor_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Advertisements" Relationship="Self.FK_Vendor_Advertisement" FromRole="Vendor" ToRole="Advertisement" />
+    <NavigationProperty Name="Choices" Relationship="Self.FKVendor_id" FromRole="Vendor" ToRole="Choices" />
+    <NavigationProperty Name="Fences" Relationship="Self.FK_Vendor_id" FromRole="Vendor" ToRole="Fence" />
+  </EntityType>
+  <Association Name="FK_Vendor_Advertisement">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Advertisement">
+        <PropertyRef Name="FKvendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKCustomer_id">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_id" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="FKCustomer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKVendor_id">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="FKVendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendor_id">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="Fence" Type="Self.Fence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Vendor_id" />
+      </Principal>
+      <Dependent Role="Fence">
+        <PropertyRef Name="FKvendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Epamphalet_dbEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+    <EntitySet Name="Choices" EntityType="Self.Choice" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Fences" EntityType="Self.Fence" />
+    <EntitySet Name="References" EntityType="Self.Reference" />
+    <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+    <AssociationSet Name="FK_Vendor_Advertisement" Association="Self.FK_Vendor_Advertisement">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="Advertisement" EntitySet="Advertisements" />
+    </AssociationSet>
+    <AssociationSet Name="FKCustomer_id" Association="Self.FKCustomer_id">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FKVendor_id" Association="Self.FKVendor_id">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendor_id" Association="Self.FK_Vendor_id">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="Fence" EntitySet="Fences" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

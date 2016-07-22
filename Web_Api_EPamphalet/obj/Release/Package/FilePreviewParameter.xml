@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Epamhaletwebservice" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Epamphalet_dbEntities-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=g1cbh22npt.database.windows.net;initial catalog=Epamphalet_db;persist security info=True;user id=EPamphalet;password=Windowsc#@786*;multipleactiveresultsets=True;application name=EntityFramework;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Epamphalet_dbEntities']/@connectionString" />
+  </parameter>
+  <parameter name="Epamphalet_dbEntities1-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=g1cbh22npt.database.windows.net;Initial Catalog=Epamphalet_db;Persist Security Info=True;User ID=EPamphalet;Password=Windowsc#@786*;MultipleActiveResultSets=True;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Epamphalet_dbEntities1']/@connectionString" />
+  </parameter>
+  <parameter name="Epamphalet_dbEntities2-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=g1cbh22npt.database.windows.net;Initial Catalog=Epamphalet_db;Persist Security Info=True;User ID=EPamphalet;Password=Windowsc#@786*;MultipleActiveResultSets=True;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Epamphalet_dbEntities2']/@connectionString" />
+  </parameter>
+  <parameter name="Epamphalet_dbEntities3-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=g1cbh22npt.database.windows.net;initial catalog=Epamphalet_db;persist security info=True;user id=EPamphalet;password=Windowsc#@786*;application name=EntityFramework;MultipleActiveResultSets=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Epamphalet_dbEntities3']/@connectionString" />
+  </parameter>
+  <parameter name="Epamphalet_dbEntities4-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=g1cbh22npt.database.windows.net;Initial Catalog=Epamphalet_db;Persist Security Info=True;User ID=EPamphalet;Password=Windowsc#@786*;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Danish\\Documents\\Visual\ Studio\ 2013\\Projects\\Web_Api_EPamphalet\\Web_Api_EPamphalet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Epamphalet_dbEntities4']/@connectionString" />
+  </parameter>
+</parameters>

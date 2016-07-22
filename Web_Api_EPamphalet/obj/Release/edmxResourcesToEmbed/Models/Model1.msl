@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Epamphalet_dbModelStoreContainer" CdmEntityContainer="Epamphalet_dbEntities4">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+          <ScalarProperty Name="Admin_username" ColumnName="Admin_username" />
+          <ScalarProperty Name="Admin_password" ColumnName="Admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Advertisements">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="Advert_id" ColumnName="Advert_id" />
+          <ScalarProperty Name="Advert_text" ColumnName="Advert_text" />
+          <ScalarProperty Name="Advert_image" ColumnName="Advert_image" />
+          <ScalarProperty Name="FKvendor_id" ColumnName="FKvendor_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choices">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Choice">
+        <MappingFragment StoreEntitySet="Choices">
+          <ScalarProperty Name="Choices_Id" ColumnName="Choices_Id" />
+          <ScalarProperty Name="FKCustomer_id" ColumnName="FKCustomer_id" />
+          <ScalarProperty Name="FKVendor_id" ColumnName="FKVendor_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="Customer_username" ColumnName="Customer_username" />
+          <ScalarProperty Name="Customer_name" ColumnName="Customer_name" />
+          <ScalarProperty Name="Customer_password" ColumnName="Customer_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fences">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Fence">
+        <MappingFragment StoreEntitySet="Fence">
+          <ScalarProperty Name="Fence_id" ColumnName="Fence_id" />
+          <ScalarProperty Name="Fence_name" ColumnName="Fence_name" />
+          <ScalarProperty Name="Fence_longitude" ColumnName="Fence_longitude" />
+          <ScalarProperty Name="Fence_latitude" ColumnName="Fence_latitude" />
+          <ScalarProperty Name="FKvendor_id" ColumnName="FKvendor_id" />
+          <ScalarProperty Name="Fence_radius" ColumnName="Fence_radius" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="References">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Reference">
+        <MappingFragment StoreEntitySet="Reference">
+          <ScalarProperty Name="Reference_no" ColumnName="Reference_no" />
+          <ScalarProperty Name="SalesCheck" ColumnName="SalesCheck" />
+          <ScalarProperty Name="Date_time" ColumnName="Date_time" />
+          <ScalarProperty Name="FKadvert_id" ColumnName="FKadvert_id" />
+          <ScalarProperty Name="FKcustomer_id" ColumnName="FKcustomer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="Epamphalet_dbModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Vendor_name" ColumnName="Vendor_name" />
+          <ScalarProperty Name="Vendor_password" ColumnName="Vendor_password" />
+          <ScalarProperty Name="Vendor_phone" ColumnName="Vendor_phone" />
+          <ScalarProperty Name="Vendor_address" ColumnName="Vendor_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
